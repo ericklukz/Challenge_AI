@@ -1,6 +1,3 @@
-from gtts import gTTS
-from pygame import mixer
-import pyttsx3
 from bardapi import BardCookies
 from flask import Flask, request
 
@@ -25,8 +22,6 @@ def receber_texto():
                 print(texto)
                 query = texto + " Resuma em poucas palavras"
                 resposta = bard.get_answer(query)['content']
-                audio = gTTS(resposta, lang='pt')
-                audio.save("resposta_bard.mp3")
                 return resposta
 
             else:
